@@ -1,0 +1,179 @@
+{{include 'web2py_ajax.html'}}
+{{ dic=[]
+	for i in range(count):
+		dic.append(rec[i])
+ }}{{pass}}
+{{sorted_list = sorted(dic, key=lambda k: k['score']) }}
+<html>
+<title>
+QUIZ
+</title>
+<head>
+<script src="{{=URL('static','js/modernizr.custom.js')}}"></script>
+</head>
+<body style="">
+<div style="margin:0;height:5%;background-color:#999;">
+<h5 style="float:left;margin:0;padding-right:100px;padding-left:500px;padding-top:5px;">
+Welcome To Quiz
+</h5>
+<h6 style="text-align:right;margin:0;padding-right:50px;padding-top:5px;">
+{{=logout}}
+</h6>
+</div>
+<div style="padding-top:0px;">
+<div id="lef" align:center; style="">
+<form>
+<center style="margin:0;padding-top:5px;">Search by Name: <input style="width:33%;" name="search_name" onkeyup="ajax('start_quiz',['search_name'],'target')"></input></center>
+</form>
+<h4 style="margin:0;padding-right:20px;"><center>Stats</center></h4>
+<hr>
+<h5 style="margin:0;padding-bottom:5px;">
+<div style="float:left;width:20%;">Rank</div>
+<div style="float:left;width:25%;padding-left:10px;">Name</div>
+<div style="float:left;width:25%;padding-left:55px;">Score</div><br><hr>
+</h5>
+<div id="target">
+{{for i in range(count):}}
+{{j=count-i-1}}
+{{req_name=sorted_list[j].name}}
+{{if sorted_list[j].name==name:}}
+{{pos=i+1}}
+{{pass}}
+{{if(req_name.startswith(what)):}}
+<div style="float:left;width:10%;">{{ =i+1 }}.</div>
+<div style="float:left;width:25%;padding-left:40px;">{{ =sorted_list[j].name }}</div>
+<div style="float:left;width:25%;padding-left:55px;">{{ =sorted_list[j].score }}</div><br>
+{{pass}}
+{{pass}}
+</div>
+</div>
+<div id="cen" align:center;>
+{{q_no=done+1}}
+<center><h3>Q{{=q_no}}. {{=q}}
+</h3></center>
+<br>
+<div id="null"></div>
+<div id="optiona" class="op" style="cursor:pointer;" onclick='window.location="{{=URL('default','start_quiz/optiona')}}";'>A. {{=oa}}</div>
+<div id="optionb" class="op" style="cursor:pointer;" onclick='window.location="{{=URL('default','start_quiz/optionb')}}";'>B. {{=ob}}</div><br><br><div id="null"></div>
+<div id="optionc" class="op" style="cursor:pointer;" onclick='window.location="{{=URL('default','start_quiz/optionc')}}";'>C. {{=oc}}</div>
+<div id="optiond" class="op" style="cursor:pointer;" onclick='window.location="{{=URL('default','start_quiz/optiond')}}";'>D. {{=od}}</div>
+<div><br><br><hr width="63%"></div>
+<center><h5>Need help? No problem you still have :</h5></center>
+<br>
+<div id="null"></div>
+<div id="optiona" class="op" style="cursor:pointer;" onclick='window.location="{{=URL('default','start_quiz/5050')}}";'>50/50 * {{=fifty}}</div>
+<div id="optionb" class="op" style="cursor:pointer;" onclick='window.location="{{=URL('default','start_quiz/poll')}}";'>Audience poll * {{=poll}}</div><br><br><div id="null"></div>
+
+<!--div>For hints.....</div-->
+</div>
+<div id="rig" align:center;>
+<div id="score">
+<h5 style="margin:0">
+<center style="padding-top:8px;">Hai {{=name}}</center>
+<br>
+Total Questions : 20
+<br><br>
+Questions Done : {{=done}}
+<br></br>
+Your Score : {{=score}}
+<br><br>
+Your position : {{=pos}}
+</h5>
+</div>
+<h5 style="margin:0;padding-top:8px;"><center>Get Help</center>
+<br>
+<span>50/50    @ 5 points</span>
+<br><br>
+<span>Audience Poll @ 8 points</span>
+</h5>
+</div>
+
+</div>
+<!--div id="dow" style="padding-top:0px;width:100%;border:1px solid;">
+<h5 style="text-align:center;">
+©Winux 2014
+</h5>
+</div!-->
+<script src="{{=URL('static','js/web2py.js')}}"></script>
+</body>
+<style>
+/*#rig{
+  border:0.5px solid;
+  }*/
+a{ text-decoration:none;
+}
+span{
+cursor:pointer;
+}
+span:hover{color:blue;}
+body{
+width:100%;
+height:95%;
+margin:0;
+}
+#lef,#cen,#rig{
+float:left;
+height:95%;
+}
+#lef{
+width:20%;
+}
+#cen{
+width:60%;
+}
+#rig{
+width:20%;
+}
+#score{
+width:100%;
+height:33%;
+}
+#dow{
+height:12%;
+}
+#null{
+float:left;
+width:10%;
+height:5%;
+       padding-left:30px;
+       padding-right:30px;
+margin:0;
+}
+#optiona{
+float:left;
+width:20%;
+height:5%;
+       padding-left:80px;
+       padding-right:30px;
+       padding-top:5px;
+margin:0;
+}
+#optionb{
+float:left;
+width:20%;
+height:5%;
+       padding-left:60px;
+       padding-right:30px;
+       padding-top:5px;
+margin:0;
+}
+#optiond{
+float:left;
+width:20%;
+height:5%;
+       padding-left:60px;
+       padding-right:30px;
+       padding-top:5px;
+margin:0;
+}
+h3{font-family:"Times New Roman", Times, serif}
+.op:hover{background-color:blue;
+	border-radius:20px;
+}
+#rig{
+border:1px solid;
+margin:0;
+}
+</style>
+</html>
+

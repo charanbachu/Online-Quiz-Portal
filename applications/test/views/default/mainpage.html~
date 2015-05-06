@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+<title> Hello</title>
+{{include 'web2py_ajax.html'}}
+</head>
+
+
+<body style="background-color: rgb(248, 236, 194);">
+
+<div id="topbar" style="border: 1px solid rgb(238, 238, 238); height: 95px; padding-bottom: 15px; background-color: black; color: rgb(238, 238, 238); margin-left: -10px; margin-top: -10px;margin-right: -8px;">
+<h1 style="margin-left: 550px; padding: 10px; border-right-width: 0px;">QUIZ</h1>
+<img src="../static/images/Clock1.gif" id="clock" style="position: absolute; width: 109px; height: 108px; top: 1px; left: 35px;">
+<div id="time" style="margin-top: 0px; position: absolute; top: 109px; left: 20px; color: black; border-width: 0px 2px 2px; height: 23px; width: 150px; border-style: solid; border-color: rgb(51, 51, 51); align-self: center; padding-left: 10px; padding-right: 5px;">
+</div>
+<div id="welcome" style="position: absolute; left: 1140px; top: 40px;" hover="color:white">Welcome {{=name}}</div>
+<a href="/test/default/user/logout?_next=/test/default/index">
+<div id="logout" style="position: absolute; top: 75px; height: 25px; margin-top: 0px; margin-left: 0px; left: 1180px;color:red;">
+logout</div>
+<img src="../static/images/logout.png" id="log" style="margin-top: 0px; position: absolute; width: 20px; height: 20px; margin-left: 1150px; top: 75px;">
+</a>
+
+</div>
+
+
+
+<div id="search" style="width: 220px; height: 400px; position: absolute; padding: 15px 15px 10px; border-width: 1px; border-style: solid; border-color: white; margin-left: 10px; margin-top: 50px;">
+
+<div ><img src="../static/images/NoticeboardLOGO.jpg" id="notice" style="width: 200px;"></div>
+
+<form>
+<center style="margin:0;padding-top:5px;">Search by Name: <input style="width:33%;" name="search_name" onkeyup="ajax('mainpage',['search_name'],'target')"></input></center>
+</form>
+<hr>
+<h5 style="margin:0;padding-bottom:5px;">
+<div style="float:left;width:20%;"><center>Rank</center></div>
+<div style="float: left; width: 110px; padding-left: 5px; padding-right: 5px; margin-left: 0px;"><center>Name</center></div>
+<div style="float: left; width: 50px; padding-left: 0px;"><center>Score</center></div><br>
+</h5>
+<hr>
+<div id="target">
+
+<div><center>Top five :</center></div><br>
+{{for i in range(count):}}
+{{if(i == 5):}}
+{{break}}
+{{j=count-i-1}}
+{{req_name=sorted_list[j].name}}
+{{if sorted_list[j].name == name:}}
+{{pos=i+1}}
+{{pass}}
+{{if(req_name.startswith("")):}}
+<div style="float:left;width:20%;"><center>{{ =i+1 }}.</center></div>
+<div style="float: left; width: 110px; padding-left: 5px; padding-right: 5px; margin-left: 0px;"><center>{{ =sorted_list[j].name }}</center></div>
+<div style="float: left; width: 50px; padding-left: 0px;"><center>{{ =sorted_list[j].score }}</center></div><br>
+{{pass}}
+{{pass}}
+{{k=i}}
+{{if(count <= 3):}}
+{{for j in range(4-k):}}
+{{i= i+1}}
+<div style="float:left;width:20%;"><center>{{ =i+1 }}.</center></div>
+<div style="float: left; width: 110px; padding-left: 5px; padding-right: 5px; margin-left: 0px;"><center>-</center></div>
+<div style="float: left; width: 50px; padding-left: 0px;"><center>-</center></div><br>
+{{pass}}
+{{pass}}
+</div>
+
+</div>
+
+
+
+<div id="stats" style="width: 220px; height: 400px; position: absolute; padding: 15px 15px 10px; border-width: 1px; border-style: solid; border-color: white; margin-left: 1050px; margin-top: 50px;">
+<br>
+<div ><img src="../static/images/updates.jpg" id="updates" style="width: 200px;"></div>
+<hr>
+<table border="1px solid" style="width:220px; border-width: 0px;">
+<tr>
+<td style="border-left-width: 0px; border-top-width: 0px;">Attempted</td>
+<td style="border-right-width: 0px;border-left-width: 0px; border-top-width: 0px;"><i>{{=secret.quesstatus-1-secret.unanswered}}</i></td>
+</tr>
+<tr>
+<td style="border-left-width: 0px; border-top-width: 0px;">Unanswered</td>
+<td style="border-right-width: 0px;border-left-width: 0px; border-top-width: 0px;"><i>{{=secret.unanswered}}</i></td>
+</tr>
+<tr>
+<td style="border-left-width: 0px; border-top-width: 0px;">Correct</td>
+<td style="border-right-width: 0px;border-left-width: 0px; border-top-width: 0px;"><i>{{=secret.correct}}</i></td>
+</tr>
+<tr>
+<td style="border-left-width: 0px; border-top-width: 0px;">Wrong</td>
+<td style="border-right-width: 0px;border-left-width: 0px; border-top-width: 0px;"><i>{{=secret.wrong}}</i></td>
+</tr>
+<tr>
+<td style="border-left-width: 0px; border-top-width: 0px;">Present score</td>
+<td style="border-right-width: 0px;border-left-width: 0px; border-top-width: 0px;"><i>{{=secret.score}}</i></td>
+</tr>
+<br>
+</table>
+</div>
+
+<div id="questions" style="width: 720px; height: 400px; position: absolute; padding: 15px 15px 10px; border-width: 1px; border-style: solid; border-color: white; margin-left: 280px; margin-top: 50px;">
+
+<h2>{{=question.quesno}}.{{=question.question}}</h2><br><br>
+<div id="options" style="color:black;">
+<div id="optionA" >
+<input type="radio" name="option" onchange="if(this.checked){goTo('{{=URL('default','mainpage/optionA')}}', 'optionA')};"> {{=question.optionA}}</div>
+<br><br>
+<div id="optionB" >
+<input type="radio" name="option" onchange="if(this.checked){goTo('{{=URL('default','mainpage/optionB')}}', 'optionB')}"> {{=question.optionB}}
+</div>
+<br>
+<br>
+<div id="optionC" >
+<input type="radio" name="option" onchange="if(this.checked){goTo('{{=URL('default','mainpage/optionC')}}', 'optionC')}"> {{=question.optionC}}
+</div>
+<br>
+<br>
+<div id="optionD" >
+<input type="radio" name="option" onchange="if(this.checked){goTo('{{=URL('default','mainpage/optionD')}}', 'optionD')}"> {{=question.optionD}}
+</div>
+</div>
+<img src="../static/images/questionmark.png" id="think" style="width: 250px; height: 250px; margin-top: 0px; position: absolute; top: 180px; left: 500px;">
+
+
+<br>
+
+<br>
+{{if(secret.Level1Hint == 0):}}
+<input type="button" id="hint" value="Get Hint" onclick='window.location="{{=URL('default','mainpage/hint')}}";' style="left: 10px; top: 360px;">
+{{pass}}
+<input type="Button" value="Leave this question" onclick='window.location="{{=URL('default','mainpage/None')}}";' />
+<input id="submit" type="Button" value="Submit" onclick="sub()" />
+
+</div>
+{{if request.args:}}
+{{if(request.args[0] == "hint"):}}
+<script>
+</script>
+
+{{if(secret.Level1Hint == 0):}}
+{{secret.update_record(score = secret.score - 5)}}
+{{secret.update_record(Level1Hint = 1)}}
+
+<script>
+document.getElementById("{{=question.extra1}}").innerHTML = ""
+document.getElementById("{{=question.extra2}}").innerHTML = ""
+document.getElementById("clock").src = "../../static/images/Clock1.gif"
+document.getElementById("log").src = "../../static/images/logout.png"
+document.getElementById("notice").src = "../../static/images/NoticeboardLOGO.jpg"
+document.getElementById("think").src = "../../static/images/questionmark.png"
+document.getElementById("updates").src = "../../static/images/updates.jpg"
+document.getElementById("hint").style.visibility = "hidden"
+
+</script>
+
+{{pass}}
+{{pass}}
+{{pass}}
+</body>
+
+<script>
+var clk = {{=time}}
+function time(){
+var down = 60-clk; 
+document.getElementById("time").innerHTML = "time left is " + down + " sec";
+if (clk == 60){
+alert("Timeout");
+window.location.href = '{{=URL('default','mainpage/None')}}'
+}
+//clk = clk + 1;
+setTimeout(time, 1000);
+}
+time();
+
+</script>
+
+<script type="text/javascript">
+var prev,selected;
+prev = "optionA"
+document.getElementById("submit").style.visibility = "hidden";
+
+function sub(){
+window.location.href = option;
+}
+function goTo(URL, selected){
+option = URL;
+document.getElementById(prev).style.color = "black";
+document.getElementById(selected).style.color = "orange";
+prev = selected;
+document.getElementById("submit").style.visibility = "visible"; 
+//alert(options);
+}
+</script>
+
+
+</html>
+

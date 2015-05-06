@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<title> Hello</title>
+{{include 'web2py_ajax.html'}}
+</head>
+
+
+<body>
+
+<div id="topbar" style="border: 1px solid rgb(238, 238, 238); height: 85px; padding-bottom: 15px; background-color: rgb(51, 51, 51); color: rgb(238, 238, 238);">
+<h1 style="margin-left: 550px; padding: 10px; border-right-width: 0px;">QUIZ</h1>
+<div id="welcome" style="position: absolute; left: 1140px; top: 40px;" hover="color:white">Welcome {{=auth.user.first_name}}</div>
+<a href="/test/default/user/logout?_next=/test/default/index">
+<div id="logout" style="position: absolute; top: 75px; height: 25px; margin-top: 0px; margin-left: 0px; left: 1180px;color:red;">
+logout</div>
+<img src="../static/images/logout.png" id="log" style="margin-top: 0px; position: absolute; width: 20px; height: 20px; margin-left: 1150px; top: 75px;">
+</a>
+</div>
+
+<div id="instructions" style="width: 720px; height: 400px; position: absolute; padding: 15px 15px 10px; border-width: 1px; border-style: solid; border-color: rgb(238, 238, 238); margin-left: 280px; margin-top: 50px;">
+<h2>Welcome to the quiz {{=auth.user.first_name}}</h2>
+<h3>Instructions.Read carefully!!!!</h3>
+<ul>
+<li>Time for each question is 60 seconds.</li>
+<li>U can resume your test after loging out.</li>
+<li>Correct answer will be awarded 10 points.</li>
+<li>Wrong answer will be awarded -10 points.(negative marking '_')</li>
+<li>There is a hint button which can be used only once.</li>
+<li>By using hint, if you answer correctly then you will be awarded 5 marks.</li>
+<li>By using hint, if you answer wrongly then you will be awarded -15 marks.(BEEWAREEE)</li>
+<li>You can leave a question and 0 marks will be awarded for this.</li>
+<li>U can search score of different users by searching their name in search box.</li>
+<li>Top five scorers would be displayed on notice board.</li>
+</ul>
+
+<input type="button" value="Play" onclick='window.location="{{=URL('default','mainpage')}}";'>
+</div>
+</body>
+</html>
+

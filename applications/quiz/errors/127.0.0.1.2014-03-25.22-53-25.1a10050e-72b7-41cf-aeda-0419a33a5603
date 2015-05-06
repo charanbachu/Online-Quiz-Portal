@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S'missing "pass" in view'
+p3
+sS'layer'
+p4
+S'ParserContainer'
+p5
+sS'code'
+p6
+S'response.write(\'<html>\\n\\t<title>\\n\\tQUIZ\\n\\t</title>\\n\\t<body style="background-color:#999;">\\n\\t\\t  <div style="background-color:#999;margin:0;height:5%;">\\n\\t\\t\\t<h5 style="float:left;margin:0;padding-right:100px;padding-left:500px;padding-top:5px;">\\n\\t\\t\\tWelcome To Quiz\\n\\t\\t\\t</h5>\\n\\t\\t\\t<h6 style="text-align:right;margin:0;padding-right:50px;padding-top:5px;">\\n\\t\\t\\t\', escape=False)\nresponse.write(logout)\nresponse.write(\'\\n\\t\\t\\t</h6>\\n\\t\\t  </div>\\n\\t\\t\\t<div style="padding-top:0px;">\\n\\t\\t\\t\\t<div id="lef" align:center; style="background-color:red;">\\n\\t\\t  \\t\\t\\t<table>\\n\\t\\t\\t\\t\\t<th>\\n\\t\\t\\t\\t\\tName\\n\\t\\t\\t\\t\\t</th>\\n\\t\\t\\t\\t\\t<th>\\n\\t\\t\\t\\t\\tScore\\n\\t\\t\\t\\t\\t</th>\\n\\t\\t\\t\\t\\t<tr>\\n\\t\\t\\t\\t\\t<td>\\n\\t\\t\\t\\t\\t1.achaitanya\\n\\t\\t\\t\\t\\t</td>\\n\\t\\t\\t\\t\\t<td>\\n\\t\\t\\t\\t\\t45\\n\\t\\t\\t\\t\\t</td>\\n\\t\\t\\t\\t\\t</tr>\\n\\t\\t\\t\\t\\t<tr>\\n\\t\\t\\t\\t\\t<td>\\n\\t\\t\\t\\t\\t2.batchu\\n\\t\\t\\t\\t\\t</td>\\n\\t\\t\\t\\t\\t<td>\\n\\t\\t\\t\\t\\t50\\n\\t\\t\\t\\t\\t</td>\\n\\t\\t\\t\\t\\t</tr>\\n\\t\\t\\t\\t\\t</table>\\n\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t<div id="cen" align:center; style="background-color:#E7E7E7;">\\n\\t\\t  \\t\\t\\t<center><h3>1.What is the capital of India ?\\n\\t\\t\\t\\t\\t</h3></center>\\n\\t\\t\\t\\t\\t\', escape=False)\nresponse.write(form)\nresponse.write(\'\\n\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t<div id="rig" align:center; style="background-color:black;">\\n\\t\\t\\t\\t\\t<div id="score" style="background-color:#333;">\\n\\t\\t\\t\\t\\t<h5 style="margin:0;color:white">\\n\\t\\t\\t\\t\\t<center>User Profile</center>\\n\\t\\t\\t\\t\\t<br>\\n\\t\\t\\t\\t\\tName : \', escape=False)\nresponse.write(t)\nresponse.write(\'\\n\\t\\t\\t\\t\\t<br><br>\\n\\t\\t\\t\\t\\tDone :\\n\\t\\t\\t\\t\\t<br><br>\\n\\t\\t\\t\\t\\tScore :\\n\\t\\t\\t\\t\\t</h5>\\n\\t\\t\\t\\t\\t</div>\\n\\t\\t\\t\\t</div>\\n\\n\\t\\t\\t</div>\\n\\t\\t\\t<div id="dow" style=";background-color:#999;padding-top:0px;width:100%;">\\n\\t\\t\\t          <h5 style="text-align:center;">\\n\\t\\t\\t\\t  \\xc2\\xa9winux 2013\\n\\t\\t\\t\\t  \', escape=False)\nfor i in a:\n    response.write(\'\\n\\t\\t\\t\\t      \', escape=False)\n    print i\n    response.write(\'\\n\\t\\t\\t\\t  </h5>\\n\\t\\t\\t</div>\\n\\t</body>\\n<style>\\na{ text-decoration:none;\\n}\\nbody{\\nwidth:100%;\\nheight:95%;\\nmargin: 0;\\n} \\n#lef,#cen,#rig{\\nfloat:left;\\nheight:95%;\\n}\\n#lef{\\nwidth:20%;\\n}\\n#cen{\\nwidth:60%;\\n}\\n#rig{\\nwidth:20%;\\n}\\n#score{\\nwidth:100%;\\nheight:33%;\\n}\\n#dow{\\nheight:12%;\\n}\\nh3{font-family:"Times New Roman", Times, serif} \\n</style>\\n</html>\\n\', escape=False)'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'None\n'
+p11
+s.

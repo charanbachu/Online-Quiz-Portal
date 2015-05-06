@@ -1,0 +1,46 @@
+<body style="background-color:white">
+  <!-- Navbar ================================================== -->
+  <div class="navbar navbar-inverse" style="backgroung-image:'../static/images/wood.jpg'">
+    <div class="flash">{{=response.flash or ''}}</div>
+    <div class="navbar-inner">
+      <div class="container">
+        <h3 style="color:white; margin-left: 500px;">QUIZ</h3>
+	<ul id="time" style="color:#999999; position: absolute; padding: 10px 15px;">Your Time left is 0 sec</ul>        
+	<ul id="navbar" class="nav pull-right">{{='auth' in globals() and auth.navbar(mode="dropdown") or ''}}</ul>
+      </div>
+    </div>
+  </div><!--/top navbar -->
+
+
+
+    <div style="display: none;" class="flash"></div>
+    <div class="navbar-inner">
+      <div class="container">
+        <h3 style="color:white; margin-left: 500px;">QUIZ</h3>
+	<ul id="time" style="color:#999999; position: absolute; padding: 10px 15px;">time left is 60 sec</ul>        
+	<ul id="navbar" class="nav pull-right"><li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#" rel="nofollow">Welcome akhil<b class="caret"></b></a><ul style="display: none;" class="dropdown-menu"><li><a href="/test/default/user/profile?_next=/test/default/mainpage" rel="nofollow"><i class="icon icon-user glyphicon glyphicon-user"></i> Profile</a></li><li><a href="/test/default/user/change_password?_next=/test/default/mainpage" rel="nofollow"><i class="icon icon-lock glyphicon glyphicon-lock"></i> Password</a></li><li class="divider"></li><li><a href="/test/default/user/logout?_next=/test/default/index" rel="nofollow"><i class="icon icon-off glyphicon glyphicon-off"></i> Logout</a></li></ul></li></ul>
+      </div>
+    </div>
+  
+
+
+
+<!-- Navbar ================================================== 
+  <div class="navbar navbar-inverse" style="backgroung-image:'../static/images/wood.jpg'">
+    <div class="flash">{{=response.flash or ''}}</div>
+    <div class="navbar-inner">
+      <div class="container">
+        <h3 style="color:white; margin-left: 500px;">QUIZ</h3>
+	<ul id="time" style="color:#999999; position: absolute; padding: 10px 15px;">Your Time left is 0 sec</ul>        
+	<ul id="navbar" class="nav pull-right">{{='auth' in globals() and auth.navbar(mode="dropdown") or ''}}</ul>
+      </div>
+    </div>
+  </div><!--/top navbar 
+-->
+
+
+
+
+
+
+
